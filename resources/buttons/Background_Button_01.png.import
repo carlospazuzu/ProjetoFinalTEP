@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/Background_Button_01.png-8d9f4e721176f09904f9f1217f2f87c8.image"
+
+[deps]
+
+source_file="res://resources/buttons/Background_Button_01.png"
+dest_files=[ "res://.import/Background_Button_01.png-8d9f4e721176f09904f9f1217f2f87c8.image" ]
+
+[params]
+
