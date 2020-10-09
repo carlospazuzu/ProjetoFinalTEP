@@ -17,3 +17,14 @@ func _on_TreinoButton_pressed():
 	count += 1
 	$Text.text = str(count)	
 	pass # Replace with function body.
+	
+func _on_DueloButton_pressed():
+	count -= 1
+	$Text.text = str(count)	
+	pass # Replace with function body.
+
+
+func _on_MeusDisparosButton_pressed():
+	count += 5
+	$Text.text = str(count)	
+	pass # Replace with function body.
