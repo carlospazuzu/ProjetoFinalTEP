@@ -1,31 +1,44 @@
 extends Node2D
 
+const BASE_NUMBER: int = 10
 
 var has_started: bool = false
+var is_allowed_to_shoot: bool = false
+var is_allowed_to_aim: bool = false
+
+var time_elapsed: float = 0.0
+
 var current_time: int = 3
 
 var is_in_right_position: bool = false
+
+var sfx1 = preload('res://resources/audio/load1.wav')
+var sfx2 = preload('res://resources/audio/load2.wav')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-func _input(event):
-	if event is InputEventMouseButton:	
-		show_help_image()
-		# start_countdown()	
-		pass
-		# emit_signal()
+func _process(delta):	
+	if not has_started:
+		if Input.get_accelerometer().x >= -10 and Input.get_accelerometer().x <= -8:
+			is_in_right_position = true
+		else:
+			is_in_right_position = false
+			
+			
+	if is_allowed_to_aim:
+		time_elapsed += delta * 100
+		if Input.get_accelerometer().x >= -1 and Input.get_accelerometer().x <= 1:
+			is_allowed_to_shoot = true		
+		else:
+			is_allowed_to_shoot = false
 
-
-func _process(delta):
-	if Input.get_accelerometer().x >= -10 and Input.get_accelerometer().x <= -8:
-		is_in_right_position = true
-	else:
-		is_in_right_position = false
-
-	if is_in_right_position:
+	if is_in_right_position and not has_started:
+		var d = randi() % 2
+		$SoundFX.stream = sfx1 if d == 0 else sfx2
+		$SoundFX.play()
 		start_countdown()
 		
 	var acc = Input.get_accelerometer()
@@ -41,14 +54,10 @@ func show_help_image():
 func start_countdown():
 	$CountdownTimer.start()
 	if not has_started:		
+		$HelpImage.visible = false
 		$CountDownImage.texture = load('res://resources/others/Cont3.png')
 		has_started = true
 
-
-func _on_TouchScreenButton_pressed():	
-	show_help_image()
-	# start_countdown()
-	pass # Replace with function body.
 
 
 func _on_CountdownTimer_timeout():
@@ -59,4 +68,22 @@ func _on_CountdownTimer_timeout():
 	else:
 		$CountDownImage.texture = load('res://resources/others/ContFogo.png')
 		$CountdownTimer.stop()
+		is_allowed_to_aim = true
 	
+
+
+func _on_ShootTouchButton_pressed():
+	var x = Input.get_accelerometer().x
+	$ScoreText.text = 'AHSUYAHUSAUHSHUASUAHSUAHSUAHSUA'
+	if is_allowed_to_shoot:
+		$CountDownImage.visible = false
+		var final_score = (BASE_NUMBER / time_elapsed) * (100 - (abs(x) * 100))
+		$ScoreText.text = 'FINAL SCORE = ' + str(final_score)
+		pass
+	pass # Replace with function body.
+
+
+func _on_TreinarTouchButton_released():
+	if not has_started:
+		show_help_image()
+	pass # Replace with function body.
