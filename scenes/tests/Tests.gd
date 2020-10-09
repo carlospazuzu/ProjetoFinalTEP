@@ -14,8 +14,7 @@ func _ready():
 
 
 func _on_TreinoButton_pressed():
-	count += 1
-	$Text.text = str(count)	
+	get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")
 	pass # Replace with function body.
 	
 func _on_DueloButton_pressed():
