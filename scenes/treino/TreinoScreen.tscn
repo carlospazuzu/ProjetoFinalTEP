@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/bgs/treino_screen.jpeg" type="Texture" id=1]
 [ext_resource path="res://resources/others/PauDaPlacaTreino.png" type="Texture" id=2]
 [ext_resource path="res://resources/buttons/bg_button_treino_pressed01.png" type="Texture" id=3]
 [ext_resource path="res://resources/buttons/bg_button_treino_01.png" type="Texture" id=4]
 [ext_resource path="res://scenes/treino/TreinoScreen.gd" type="Script" id=5]
+[ext_resource path="res://resources/others/bg_treino_posicao.png" type="Texture" id=6]
 
 [node name="TreinoScreen" type="Node2D"]
 script = ExtResource( 5 )
@@ -26,5 +27,20 @@ pressed = ExtResource( 3 )
 [node name="CountdownTimer" type="Timer" parent="."]
 
 [node name="CountDownImage" type="Sprite" parent="."]
+position = Vector2( 426, 240 )
+
+[node name="HelpImage" type="Sprite" parent="."]
+visible = false
+position = Vector2( 426, 240 )
+texture = ExtResource( 6 )
+
+[node name="AccelerometerHelper" type="RichTextLabel" parent="."]
+margin_left = 36.0
+margin_top = 11.0
+margin_right = 445.0
+margin_bottom = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="TreinarTouchButton" to="." method="_on_TouchScreenButton_pressed"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
