@@ -17,7 +17,7 @@ position = Vector2( 426, 243 )
 texture = ExtResource( 1 )
 
 [node name="TreinoButton" type="TouchScreenButton" parent="."]
-position = Vector2( 569.145, 134.732 )
+position = Vector2( 571.145, 135.732 )
 rotation = -0.0872665
 normal = ExtResource( 5 )
 pressed = ExtResource( 6 )

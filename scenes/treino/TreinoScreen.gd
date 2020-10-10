@@ -22,11 +22,9 @@ func _ready():
 
 
 func _process(delta):	
-	$has_started_Text.text = 'Has_Started = ' + str(has_started) 	
 	
-
 	if not has_started:
-		if Input.get_accelerometer().x >= -10 and Input.get_accelerometer().x <= -8:
+		if Input.get_accelerometer().x >= -103 and Input.get_accelerometer().x <= -8:
 			is_in_right_position = true
 		else:
 			is_in_right_position = false
@@ -78,6 +76,7 @@ func _on_CountdownTimer_timeout():
 
 func _on_ShootTouchButton_pressed():
 	var x = Input.get_accelerometer().x
+
 	$ScoreText.text = 'AHSUYAHUSAUHSHUASUAHSUAHSUAHSUA'
 	if is_allowed_to_shoot:
 		$CountDownImage.visible = false
