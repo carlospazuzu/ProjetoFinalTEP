@@ -57,6 +57,15 @@ margin_bottom = 97.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="has_started_Text" type="RichTextLabel" parent="."]
+margin_left = 669.0
+margin_top = 4.0
+margin_right = 848.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="released" from="TreinarTouchButton" to="." method="_on_TreinarTouchButton_released"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
 [connection signal="pressed" from="ShootTouchButton" to="." method="_on_ShootTouchButton_pressed"]

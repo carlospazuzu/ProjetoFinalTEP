@@ -12,9 +12,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _input(event):
-	if event is InputEventMouseButton:
-		get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")	
+#func _input(event):
+	#if event is InputEventMouseButton:
+		#get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")	
 
 
 func _on_TreinoButton_pressed():

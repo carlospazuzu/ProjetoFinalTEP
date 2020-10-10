@@ -14,6 +14,7 @@ var is_in_right_position: bool = false
 
 var sfx1 = preload('res://resources/audio/load1.wav')
 var sfx2 = preload('res://resources/audio/load2.wav')
+var sfx3 = preload('res://resources/audio/tiro.wav')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +22,9 @@ func _ready():
 
 
 func _process(delta):	
+	$has_started_Text.text = 'Has_Started = ' + str(has_started) 	
+	
+
 	if not has_started:
 		if Input.get_accelerometer().x >= -10 and Input.get_accelerometer().x <= -8:
 			is_in_right_position = true
@@ -79,8 +83,8 @@ func _on_ShootTouchButton_pressed():
 		$CountDownImage.visible = false
 		var final_score = (BASE_NUMBER / time_elapsed) * (100 - (abs(x) * 100))
 		$ScoreText.text = 'FINAL SCORE = ' + str(final_score)
-		pass
-	pass # Replace with function body.
+		$SoundFX.stream = sfx3
+		$SoundFX.play()
 
 
 func _on_TreinarTouchButton_released():
