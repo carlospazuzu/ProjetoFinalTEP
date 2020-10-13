@@ -12,14 +12,13 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _input(event):
-	if event is InputEventMouseButton:
-		get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")	
+#func _input(event):
+	#if event is InputEventMouseButton:
+		#get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")	
 
 
 func _on_TreinoButton_pressed():
 	get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")
-	pass # Replace with function body.
 	
 func _on_DueloButton_pressed():
 	count -= 1

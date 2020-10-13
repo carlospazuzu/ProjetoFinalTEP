@@ -1,6 +1,6 @@
 extends Node2D
 
-const BASE_NUMBER: int = 10
+const BASE_NUMBER: int = 50
 
 var has_started: bool = false
 var is_allowed_to_shoot: bool = false
@@ -23,12 +23,11 @@ func _ready():
 
 func _process(delta):	
 	
-	if not has_started:
-		if Input.get_accelerometer().x >= -103 and Input.get_accelerometer().x <= -8:
+	if has_started:
+		if Input.get_accelerometer().x >= -10 and Input.get_accelerometer().x <= -8:
 			is_in_right_position = true
 		else:
 			is_in_right_position = false
-			
 			
 	if is_allowed_to_aim:
 		time_elapsed += delta * 100
@@ -37,30 +36,33 @@ func _process(delta):
 		else:
 			is_allowed_to_shoot = false
 
-	if is_in_right_position and not has_started:
+	if is_in_right_position and has_started:
 		var d = randi() % 2
 		$SoundFX.stream = sfx1 if d == 0 else sfx2
 		$SoundFX.play()
 		start_countdown()
 		
 	var acc = Input.get_accelerometer()
+	var started = str(has_started)
 		
-	$AccelerometerHelper.text = 'X = ' + str(acc.x) + ' Y = ' + str(acc.y) + ' Z = ' + str(acc.z)
+	$AccelerometerHelper.text = 'X = ' + str(acc.x) + ' Y = ' + str(acc.y) + ' Z = ' + str(acc.z) + ' has_starded = ' + started
 
 func show_help_image():
 	$PauDaPlacaTreino.visible = false
 	$TreinarTouchButton.visible = false
 	$HelpImage.visible = true
-
+	
+func show_final_score_itens():
+	$Bangg.visible = true
+	$RestartButton.visible = true
+	$HomeScreenButton.visible = true
 
 func start_countdown():
 	$CountdownTimer.start()
-	if not has_started:		
+	if has_started:		
 		$HelpImage.visible = false
 		$CountDownImage.texture = load('res://resources/others/Cont3.png')
-		has_started = true
-
-
+		has_started = false
 
 func _on_CountdownTimer_timeout():
 	current_time -= 1
@@ -72,21 +74,25 @@ func _on_CountdownTimer_timeout():
 		$CountdownTimer.stop()
 		is_allowed_to_aim = true
 	
-
-
 func _on_ShootTouchButton_pressed():
 	var x = Input.get_accelerometer().x
 
-	$ScoreText.text = 'AHSUYAHUSAUHSHUASUAHSUAHSUAHSUA'
 	if is_allowed_to_shoot:
 		$CountDownImage.visible = false
 		var final_score = (BASE_NUMBER / time_elapsed) * (100 - (abs(x) * 100))
 		$ScoreText.text = 'FINAL SCORE = ' + str(final_score)
 		$SoundFX.stream = sfx3
 		$SoundFX.play()
-
+		$ShootTouchButton.visible = false
+		show_final_score_itens()
 
 func _on_TreinarTouchButton_released():
-	if not has_started:
+	has_started = true
+	if not is_in_right_position:
 		show_help_image()
-	pass # Replace with function body.
+
+func _on_HomeScreenButton_pressed() -> void:
+	get_tree().change_scene("res://scenes/tests/Tests.tscn")
+
+func _on_RestartButton_pressed() -> void:
+	get_tree().reload_current_scene()

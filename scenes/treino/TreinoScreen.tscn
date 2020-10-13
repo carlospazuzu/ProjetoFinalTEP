@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/bgs/treino_screen.jpeg" type="Texture" id=1]
 [ext_resource path="res://resources/others/PauDaPlacaTreino.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://scenes/treino/TreinoScreen.gd" type="Script" id=5]
 [ext_resource path="res://resources/others/bg_treino_posicao.png" type="Texture" id=6]
 [ext_resource path="res://resources/buttons/translucent_btn.png" type="Texture" id=7]
+[ext_resource path="res://resources/buttons/RepeatButton.png" type="Texture" id=8]
+[ext_resource path="res://resources/buttons/HomeScreenButton.png" type="Texture" id=9]
+[ext_resource path="res://resources/buttons/RepeatButtonPressed.png" type="Texture" id=10]
+[ext_resource path="res://resources/buttons/Bangg.png" type="Texture" id=11]
+[ext_resource path="res://resources/buttons/HomeScreenButtonPressed.png" type="Texture" id=12]
 
 [node name="TreinoScreen" type="Node2D"]
 script = ExtResource( 5 )
@@ -66,6 +71,25 @@ margin_bottom = 44.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RestartButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 629.196, 418.098 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 10 )
+
+[node name="HomeScreenButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 723.053, 418.421 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 12 )
+
+[node name="Bangg" type="Sprite" parent="."]
+visible = false
+position = Vector2( 424, 161.807 )
+texture = ExtResource( 11 )
 [connection signal="released" from="TreinarTouchButton" to="." method="_on_TreinarTouchButton_released"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
 [connection signal="pressed" from="ShootTouchButton" to="." method="_on_ShootTouchButton_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="HomeScreenButton" to="." method="_on_HomeScreenButton_pressed"]
