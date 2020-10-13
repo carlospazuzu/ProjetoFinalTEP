@@ -75,6 +75,20 @@ func _on_CountdownTimer_timeout():
 		$CountDownImage.texture = load('res://resources/others/ContFogo.png')
 		$CountdownTimer.stop()
 		is_allowed_to_aim = true
+
+func _getProperSpaces(score):
+	var digits = 4 - len(str(int(score)))
+	
+	match digits:
+		0:
+			return ''
+		1:
+			return ' '
+		2:
+			return '  '
+		3:
+			return '    '
+
 	
 func _on_ShootTouchButton_pressed():
 	var x = Input.get_accelerometer().x
@@ -82,8 +96,8 @@ func _on_ShootTouchButton_pressed():
 	if is_allowed_to_shoot:
 		$CountDownImage.visible = false
 		var final_score = (BASE_NUMBER / time_elapsed) * (100 - (abs(x) * 100))
-		$ScoreText.text = str(int(final_score)) + ' PTS' 
-		$ReactionTimeText.text = 'REACAO: ' + str(time_elapsed)
+		$ScoreText.text = _getProperSpaces(final_score) + str(int(final_score)) + ' PTS' 
+		$ReactionTimeText.text = 'REACAO: ' + str(time_elapsed) + ' s'
 		$PrecisionText.text = 'PRECISAO: ' + str(int(100 - (abs(x) * 100)))+ '%'
 		$SoundFX.stream = sfx3
 		$SoundFX.play()		
