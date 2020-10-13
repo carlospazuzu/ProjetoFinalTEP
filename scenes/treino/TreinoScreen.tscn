@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://resources/bgs/treino_screen.jpeg" type="Texture" id=1]
 [ext_resource path="res://resources/others/PauDaPlacaTreino.png" type="Texture" id=2]
@@ -12,6 +12,20 @@
 [ext_resource path="res://resources/buttons/RepeatButtonPressed.png" type="Texture" id=10]
 [ext_resource path="res://resources/buttons/Bangg.png" type="Texture" id=11]
 [ext_resource path="res://resources/buttons/HomeScreenButtonPressed.png" type="Texture" id=12]
+[ext_resource path="res://resources/fonts/COMICAL CARTOON.TTF" type="DynamicFontData" id=13]
+[ext_resource path="res://resources/others/Score.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 9
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 9
+font_data = ExtResource( 13 )
 
 [node name="TreinoScreen" type="Node2D"]
 script = ExtResource( 5 )
@@ -54,15 +68,6 @@ normal = ExtResource( 7 )
 
 [node name="SoundFX" type="AudioStreamPlayer2D" parent="."]
 
-[node name="ScoreText" type="RichTextLabel" parent="."]
-margin_left = 59.0
-margin_top = 57.0
-margin_right = 417.0
-margin_bottom = 97.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="has_started_Text" type="RichTextLabel" parent="."]
 margin_left = 669.0
 margin_top = 4.0
@@ -88,6 +93,47 @@ pressed = ExtResource( 12 )
 visible = false
 position = Vector2( 424, 161.807 )
 texture = ExtResource( 11 )
+
+[node name="FinalScoreBoard" type="Sprite" parent="."]
+position = Vector2( 430, 384 )
+texture = ExtResource( 14 )
+
+[node name="ScoreText" type="RichTextLabel" parent="."]
+margin_left = 310.0
+margin_top = 334.0
+margin_right = 561.0
+margin_bottom = 385.0
+rect_rotation = -1.51884
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.4, 0.2, 0, 1 )
+text = "4127 PTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReactionTimeText" type="RichTextLabel" parent="."]
+margin_left = 333.0
+margin_top = 373.0
+margin_right = 537.0
+margin_bottom = 401.0
+rect_rotation = -2.74178
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.4, 0.2, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrecisionText" type="RichTextLabel" parent="."]
+margin_left = 342.0
+margin_top = 402.0
+margin_right = 529.0
+margin_bottom = 435.0
+rect_rotation = -3.82996
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.4, 0.2, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="released" from="TreinarTouchButton" to="." method="_on_TreinarTouchButton_released"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
 [connection signal="pressed" from="ShootTouchButton" to="." method="_on_ShootTouchButton_pressed"]

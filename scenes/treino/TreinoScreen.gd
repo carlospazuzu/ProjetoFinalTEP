@@ -30,7 +30,7 @@ func _process(delta):
 			is_in_right_position = false
 			
 	if is_allowed_to_aim:
-		time_elapsed += delta * 100
+		time_elapsed += delta
 		if Input.get_accelerometer().x >= -1 and Input.get_accelerometer().x <= 1:
 			is_allowed_to_shoot = true		
 		else:
@@ -56,6 +56,8 @@ func show_final_score_itens():
 	$Bangg.visible = true
 	$RestartButton.visible = true
 	$HomeScreenButton.visible = true
+	$FinalScoreBoard.visible = true
+	$ShootTouchButton.visible = false		
 
 func start_countdown():
 	$CountdownTimer.start()
@@ -80,10 +82,11 @@ func _on_ShootTouchButton_pressed():
 	if is_allowed_to_shoot:
 		$CountDownImage.visible = false
 		var final_score = (BASE_NUMBER / time_elapsed) * (100 - (abs(x) * 100))
-		$ScoreText.text = 'FINAL SCORE = ' + str(final_score)
+		$ScoreText.text = str(int(final_score)) + ' PTS' 
+		$ReactionTimeText.text = 'REACAO: ' + str(time_elapsed)
+		$PrecisionText.text = 'PRECISAO: ' + str(int(100 - (abs(x) * 100)))+ '%'
 		$SoundFX.stream = sfx3
-		$SoundFX.play()
-		$ShootTouchButton.visible = false
+		$SoundFX.play()		
 		show_final_score_itens()
 
 func _on_TreinarTouchButton_released():
