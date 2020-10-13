@@ -24,14 +24,25 @@ func _ready():
 func _process(delta):	
 	
 	if has_started:
-		if Input.get_accelerometer().x >= -10 and Input.get_accelerometer().x <= -8:
+		if Input.get_accelerometer().x >= -11 and Input.get_accelerometer().x <= -7:
 			is_in_right_position = true
 		else:
 			is_in_right_position = false
 			
+	if not has_started and not $CountdownTimer.is_stopped():
+		if not (Input.get_accelerometer().x >= -11 and Input.get_accelerometer().x <= -7):
+			is_in_right_position = false
+			has_started = true
+			show_help_image()
+			$CountdownTimer.stop()
+			current_time = 3
+			$CountDownImage.texture = null
+			$ErrorSFX.play()
+			
+			
 	if is_allowed_to_aim:
 		time_elapsed += delta
-		if Input.get_accelerometer().x >= -1 and Input.get_accelerometer().x <= 1:
+		if Input.get_accelerometer().x >= -2 and Input.get_accelerometer().x <= 2:
 			is_allowed_to_shoot = true		
 		else:
 			is_allowed_to_shoot = false
@@ -64,16 +75,19 @@ func start_countdown():
 	if has_started:		
 		$HelpImage.visible = false
 		$CountDownImage.texture = load('res://resources/others/Cont3.png')
+		$CountdownFX.play()
 		has_started = false
 
 func _on_CountdownTimer_timeout():
 	current_time -= 1
 	if current_time >= 1:
+		$CountdownFX.play()
 		$CountDownImage.texture = load('res://resources/others/Cont' + str(current_time) +'.png')
 		$CountdownTimer.start()
 	else:
 		$CountDownImage.texture = load('res://resources/others/ContFogo.png')
 		$CountdownTimer.stop()
+		$CountdownFinishedSFX.play()
 		is_allowed_to_aim = true
 
 func _getProperSpaces(score):
@@ -95,10 +109,10 @@ func _on_ShootTouchButton_pressed():
 
 	if is_allowed_to_shoot:
 		$CountDownImage.visible = false
-		var final_score = (BASE_NUMBER / time_elapsed) * (100 - (abs(x) * 100))
+		var final_score = (BASE_NUMBER / time_elapsed) * ((200 - (abs(x) * 100)) / 2)
 		$ScoreText.text = _getProperSpaces(final_score) + str(int(final_score)) + ' PTS' 
 		$ReactionTimeText.text = 'REACAO: ' + str(time_elapsed) + ' s'
-		$PrecisionText.text = 'PRECISAO: ' + str(int(100 - (abs(x) * 100)))+ '%'
+		$PrecisionText.text = 'PRECISAO: ' + str(int((200 - (abs(x) * 100)) / 2)) + '%'
 		$SoundFX.stream = sfx3
 		$SoundFX.play()		
 		show_final_score_itens()
