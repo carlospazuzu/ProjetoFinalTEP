@@ -33,14 +33,9 @@ func _process(delta):
 	if has_started:
 		if Input.get_accelerometer().x >= -11 and Input.get_accelerometer().x <= -7:
 			is_in_right_position = true
+			start_countdown()
 		else:
 			is_in_right_position = false
-			
-	if is_in_right_position and has_started:
-		#var d = randi() % 2
-		#$SoundFX.stream = sfx1 if d == 0 else sfx2
-		#$SoundFX.play()
-		start_countdown()
 		
 	if not has_started and not $CountdownTimer.is_stopped():
 		if not (Input.get_accelerometer().x >= -11 and Input.get_accelerometer().x <= -7):
@@ -59,6 +54,10 @@ func _process(delta):
 		else:
 			is_allowed_to_shoot = false
 
+
+	var acc = Input.get_accelerometer()
+	var started = str(has_started)
+	$AccelerometerHelper.text = 'X = ' + str(acc.x) + ' Y = ' + str(acc.y) + ' Z = ' + str(acc.z) + ' has_starded = ' + started
 
 func _on_DuelarTouchButton_pressed():
 	has_started = true
@@ -134,7 +133,6 @@ func show_final_score_itens():
 func _on_NextPlayerButton_pressed():
 	$Bangg.visible = false
 	if is_player_one:
-		current_time = 3
 		is_player_one = false
 		$PlayerNumber.text = "jogador  2"
 		$PlayerNumber.visible = true
@@ -142,9 +140,14 @@ func _on_NextPlayerButton_pressed():
 		$DuelarTouchButton.visible = true
 		$PauDaPlaca.visible = true
 		$ShootTouchButton.visible = true
+		$CountDownImage.visible = true
+		$CountDownImage.texture = null
 		is_in_right_position = false
 		is_allowed_to_aim = false
 		is_allowed_to_shoot = false
+		time_elapsed = 0.0
+		current_time = 3
+		
 	else:
 		$DuelarTouchButton.visible = false
 		$ShootTouchButton.visible = false

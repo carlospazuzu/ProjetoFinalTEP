@@ -26,6 +26,7 @@ func _process(delta):
 	if has_started:
 		if Input.get_accelerometer().x >= -11 and Input.get_accelerometer().x <= -7:
 			is_in_right_position = true
+			start_countdown()
 		else:
 			is_in_right_position = false
 			
@@ -46,12 +47,6 @@ func _process(delta):
 			is_allowed_to_shoot = true		
 		else:
 			is_allowed_to_shoot = false
-
-	if is_in_right_position and has_started:
-		#var d = randi() % 2
-		#$SoundFX.stream = sfx1 if d == 0 else sfx2
-		#$SoundFX.play()
-		start_countdown()
 		
 	var acc = Input.get_accelerometer()
 	var started = str(has_started)
@@ -68,11 +63,11 @@ func show_final_score_itens():
 	$RestartButton.visible = true
 	$HomeScreenButton.visible = true
 	$FinalScoreBoard.visible = true
-	$ShootTouchButton.visible = false		
+	$ShootTouchButton.visible = false
 
 func start_countdown():
 	$CountdownTimer.start()
-	if has_started:		
+	if has_started:
 		$HelpImage.visible = false
 		$CountDownImage.texture = load('res://resources/others/Cont3.png')
 		$CountdownFX.play()
@@ -114,7 +109,7 @@ func _on_ShootTouchButton_pressed():
 		$ReactionTimeText.text = 'REACAO: ' + str(time_elapsed) + ' s'
 		$PrecisionText.text = 'PRECISAO: ' + str(int((200 - (abs(x) * 100)) / 2)) + '%'
 		$SoundFX.stream = sfx3
-		$SoundFX.play()		
+		$SoundFX.play()
 		show_final_score_itens()
 
 func _on_TreinarTouchButton_released():
