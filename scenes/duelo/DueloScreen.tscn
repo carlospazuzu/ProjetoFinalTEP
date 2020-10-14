@@ -1,0 +1,239 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://scenes/duelo/DueloScreen.gd" type="Script" id=1]
+[ext_resource path="res://resources/others/PauDaPlacaTreino.png" type="Texture" id=2]
+[ext_resource path="res://resources/buttons/bg_button_duelar.png" type="Texture" id=3]
+[ext_resource path="res://resources/buttons/bg_button_duelar_pressed.png" type="Texture" id=4]
+[ext_resource path="res://resources/bgs/bg_duelo.png" type="Texture" id=5]
+[ext_resource path="res://resources/others/bg_treino_posicao.png" type="Texture" id=6]
+[ext_resource path="res://resources/buttons/translucent_btn.png" type="Texture" id=7]
+[ext_resource path="res://resources/audio/tiro.wav" type="AudioStream" id=8]
+[ext_resource path="res://resources/buttons/HomeScreenButton.png" type="Texture" id=9]
+[ext_resource path="res://resources/buttons/RepeatButtonPressed.png" type="Texture" id=10]
+[ext_resource path="res://resources/buttons/Bangg.png" type="Texture" id=11]
+[ext_resource path="res://resources/buttons/HomeScreenButtonPressed.png" type="Texture" id=12]
+[ext_resource path="res://resources/fonts/COMICAL CARTOON.TTF" type="DynamicFontData" id=13]
+[ext_resource path="res://resources/buttons/RepeatButton.png" type="Texture" id=14]
+[ext_resource path="res://resources/audio/countdown.wav" type="AudioStream" id=15]
+[ext_resource path="res://resources/audio/error.wav" type="AudioStream" id=16]
+[ext_resource path="res://resources/audio/countdown_finished.wav" type="AudioStream" id=17]
+[ext_resource path="res://resources/buttons/next_player_button_pressed.png" type="Texture" id=18]
+[ext_resource path="res://resources/buttons/next_player_button.png" type="Texture" id=19]
+[ext_resource path="res://resources/buttons/ScoreDuelo.png" type="Texture" id=20]
+[ext_resource path="res://theme/new_theme.tres" type="Theme" id=21]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 4
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 21
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+font_data = ExtResource( 13 )
+
+[node name="DueloScreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 426, 240 )
+texture = ExtResource( 5 )
+
+[node name="PauDaPlaca" type="Sprite" parent="."]
+position = Vector2( 389, 358 )
+texture = ExtResource( 2 )
+
+[node name="ShootTouchButton" type="TouchScreenButton" parent="."]
+normal = ExtResource( 7 )
+
+[node name="ShotSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 424, 161 )
+stream = ExtResource( 8 )
+
+[node name="DuelarTouchButton" type="TouchScreenButton" parent="."]
+position = Vector2( 257, 277 )
+rotation = -0.0872665
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+
+[node name="HelpImage" type="Sprite" parent="."]
+visible = false
+position = Vector2( 426, 240 )
+texture = ExtResource( 6 )
+
+[node name="PlayerNumber" type="RichTextLabel" parent="."]
+margin_left = 122.0
+margin_top = 100.0
+margin_right = 741.0
+margin_bottom = 192.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 0, 0, 1 )
+text = "jogador  1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountdownTimer" type="Timer" parent="."]
+
+[node name="CountDownImage" type="Sprite" parent="."]
+position = Vector2( 426, 240 )
+
+[node name="CountdownFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+
+[node name="CountdownFinishedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+
+[node name="ErrorSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+
+[node name="FinalScoreBoard" type="Sprite" parent="."]
+visible = false
+position = Vector2( 426.217, 239.769 )
+scale = Vector2( 1.02781, 0.999577 )
+texture = ExtResource( 20 )
+
+[node name="Player1Text" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 118.0
+margin_top = 58.0
+margin_right = 245.0
+margin_bottom = 83.0
+theme = ExtResource( 21 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+text = "jogador 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2Text" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 612.0
+margin_top = 57.0
+margin_right = 738.0
+margin_bottom = 80.0
+theme = ExtResource( 21 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+text = "jogador 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTextPlayer1" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 57.0
+margin_top = 87.0
+margin_right = 333.0
+margin_bottom = 138.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.410156, 0.223562, 0.104141, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTextPlayer2" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 541.0
+margin_top = 86.0
+margin_right = 832.0
+margin_bottom = 136.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReactionTimeTextP1" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 70.0
+margin_top = 144.0
+margin_right = 356.0
+margin_bottom = 171.0
+theme = ExtResource( 21 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReactionTimeTextP2" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 564.285
+margin_top = 144.0
+margin_right = 851.285
+margin_bottom = 178.0
+theme = ExtResource( 21 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrecisionTextP1" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 70.0
+margin_top = 174.0
+margin_right = 272.0
+margin_bottom = 197.0
+theme = ExtResource( 21 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrecisionTextP2" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 563.0
+margin_top = 174.0
+margin_right = 803.0
+margin_bottom = 201.0
+theme = ExtResource( 21 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bangg" type="Sprite" parent="."]
+visible = false
+position = Vector2( 424, 161 )
+texture = ExtResource( 11 )
+
+[node name="NextPlayerButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 315, 310 )
+normal = ExtResource( 19 )
+pressed = ExtResource( 18 )
+
+[node name="RestartButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 623.073, 419.884 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 10 )
+
+[node name="HomeScreenButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 720, 418.895 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 12 )
+
+[node name="PlayerWin" type="RichTextLabel" parent="."]
+margin_left = 283.0
+margin_top = 316.0
+margin_right = 554.0
+margin_bottom = 433.0
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ShootTouchButton" to="." method="_on_ShootTouchButton_pressed"]
+[connection signal="pressed" from="DuelarTouchButton" to="." method="_on_DuelarTouchButton_pressed"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
+[connection signal="pressed" from="NextPlayerButton" to="." method="_on_NextPlayerButton_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="HomeScreenButton" to="." method="_on_HomeScreenButton_pressed"]

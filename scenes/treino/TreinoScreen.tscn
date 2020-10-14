@@ -94,7 +94,7 @@ pressed = ExtResource( 12 )
 
 [node name="Bangg" type="Sprite" parent="."]
 visible = false
-position = Vector2( 424, 161.807 )
+position = Vector2( 424, 161 )
 texture = ExtResource( 11 )
 
 [node name="FinalScoreBoard" type="Sprite" parent="."]
@@ -115,10 +115,10 @@ __meta__ = {
 }
 
 [node name="ReactionTimeText" type="RichTextLabel" parent="."]
-margin_left = 326.0
-margin_top = 383.0
-margin_right = 551.0
-margin_bottom = 411.0
+margin_left = 304.0
+margin_top = 384.0
+margin_right = 557.0
+margin_bottom = 412.0
 rect_rotation = -2.74178
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.4, 0.2, 0, 1 )

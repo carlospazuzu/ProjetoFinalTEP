@@ -48,9 +48,9 @@ func _process(delta):
 			is_allowed_to_shoot = false
 
 	if is_in_right_position and has_started:
-		var d = randi() % 2
-		$SoundFX.stream = sfx1 if d == 0 else sfx2
-		$SoundFX.play()
+		#var d = randi() % 2
+		#$SoundFX.stream = sfx1 if d == 0 else sfx2
+		#$SoundFX.play()
 		start_countdown()
 		
 	var acc = Input.get_accelerometer()

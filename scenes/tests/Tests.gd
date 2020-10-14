@@ -21,9 +21,7 @@ func _on_TreinoButton_pressed():
 	get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")
 	
 func _on_DueloButton_pressed():
-	count -= 1
-	$Text.text = str(count)	
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/duelo/DueloScreen.tscn")
 
 
 func _on_MeusDisparosButton_pressed():
