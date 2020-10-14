@@ -3,7 +3,6 @@
 [ext_resource path="res://resources/fonts/COMICAL CARTOON.TTF" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 8
 font_data = ExtResource( 1 )
 
 [resource]
