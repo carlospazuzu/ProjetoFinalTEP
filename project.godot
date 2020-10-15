@@ -19,6 +19,10 @@ config/name="BANGG!"
 run/main_scene="res://scenes/tests/Tests.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Data="*res://save/Data.gd"
+
 [display]
 
 window/size/width=853

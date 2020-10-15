@@ -20,7 +20,7 @@
 [ext_resource path="res://resources/buttons/next_player_button_pressed.png" type="Texture" id=18]
 [ext_resource path="res://resources/buttons/next_player_button.png" type="Texture" id=19]
 [ext_resource path="res://resources/buttons/ScoreDuelo.png" type="Texture" id=20]
-[ext_resource path="res://theme/new_theme.tres" type="Theme" id=21]
+[ext_resource path="res://theme/new_theme_2.tres" type="Theme" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -28,11 +28,11 @@ outline_size = 4
 font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 21
+size = 19
 font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 21
+size = 19
 font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -107,7 +107,7 @@ texture = ExtResource( 20 )
 visible = false
 margin_left = 118.0
 margin_top = 58.0
-margin_right = 245.0
+margin_right = 279.0
 margin_bottom = 83.0
 theme = ExtResource( 21 )
 custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
@@ -120,7 +120,7 @@ __meta__ = {
 visible = false
 margin_left = 612.0
 margin_top = 57.0
-margin_right = 738.0
+margin_right = 787.0
 margin_bottom = 80.0
 theme = ExtResource( 21 )
 custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
@@ -137,66 +137,72 @@ margin_right = 333.0
 margin_bottom = 138.0
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.410156, 0.223562, 0.104141, 1 )
+text = "0000 pts"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreTextPlayer2" type="RichTextLabel" parent="."]
 visible = false
-margin_left = 541.0
-margin_top = 86.0
-margin_right = 832.0
-margin_bottom = 136.0
+margin_left = 546.0
+margin_top = 85.0
+margin_right = 837.0
+margin_bottom = 135.0
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+text = "0000 pts"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ReactionTimeTextP1" type="RichTextLabel" parent="."]
 visible = false
-margin_left = 70.0
-margin_top = 144.0
-margin_right = 356.0
-margin_bottom = 171.0
+margin_left = 63.0
+margin_top = 145.0
+margin_right = 349.0
+margin_bottom = 179.0
 theme = ExtResource( 21 )
 custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+text = "reacao:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ReactionTimeTextP2" type="RichTextLabel" parent="."]
 visible = false
-margin_left = 564.285
+margin_left = 548.285
 margin_top = 144.0
-margin_right = 851.285
+margin_right = 835.285
 margin_bottom = 178.0
 theme = ExtResource( 21 )
 custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+text = "reacao:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PrecisionTextP1" type="RichTextLabel" parent="."]
 visible = false
-margin_left = 70.0
-margin_top = 174.0
-margin_right = 272.0
-margin_bottom = 197.0
+margin_left = 61.0
+margin_top = 178.0
+margin_right = 300.0
+margin_bottom = 223.0
 theme = ExtResource( 21 )
 custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+text = "precisao:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PrecisionTextP2" type="RichTextLabel" parent="."]
 visible = false
-margin_left = 563.0
-margin_top = 174.0
-margin_right = 803.0
-margin_bottom = 201.0
+margin_left = 548.0
+margin_top = 184.0
+margin_right = 807.0
+margin_bottom = 238.0
 theme = ExtResource( 21 )
 custom_colors/default_color = Color( 0.411765, 0.223529, 0.105882, 1 )
+text = "precisao:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

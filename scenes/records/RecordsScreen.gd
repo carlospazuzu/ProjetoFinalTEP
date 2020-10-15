@@ -1,21 +1,18 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Data.load()
+	$PontosContainer/um.text = str(int(Data.records[0].pontos))
+	$PontosContainer/dois.text = str(int(Data.records[1].pontos))
+	$PontosContainer/tres.text = str(int(Data.records[2].pontos))
+	$PontosContainer/quarto.text = str(int(Data.records[3].pontos))
+	$PontosContainer/cinco.text = str(int(Data.records[4].pontos))
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 
 func _on_ReturnHomeButton_pressed():
-	get_tree().change_scene("res://scenes/tests/Tests.gd")
+	get_tree().change_scene("res://scenes/tests/Tests.tscn")
 	

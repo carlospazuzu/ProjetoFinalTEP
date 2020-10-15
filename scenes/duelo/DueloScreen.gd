@@ -118,49 +118,16 @@ class MyCustomSorter:
 			
 func _save_record_to_file(final_score, x):
 	var precisao = int(200 - (abs(x) * 100))
-	
-	var records = []
-	records.append(
-		{
+	var record = {
 			"pontos": final_score,					
 			"reacao": time_elapsed,
 			"precisao": precisao,
 		}
-	)
-	
-	var file = File.new()
-	if file.file_exists("user://save.dat", File.READ):
-		var err = file.open("user://save.dat", File.READ)
-		if err == OK:
-			var r = file.get_var()
-			r.append(records)
-			
-			r.sort_custom(MyCustomSorter, "sort_ascending")
-			
-			if len(r) >= 5:
-				r.pop_back()
-				
-			file.close()
-			var err2 = file.open("user://save.dat", File.WRITE)
-			if err2 == OK:
-				file.store_var(r)
-			else:
-				print("Error trying to save to file")
-				
-			file.close()
-		else:
-			print("Error reading file")
-		file.close()
-	else:
-		var error = file.open("user://save.dat", File.WRITE)
-		if error == OK:
-			
-			file.store_var(records)
-		else:
-			print("Error opening file!")
-			
-		file.close()
-	
+	Data.records.append(record)
+	Data.records.sort_custom(MyCustomSorter, "sort_ascending")
+	if len(Data.records) >= 5:
+		Data.records.pop_back()
+	Data.save()
 			
 
 func _on_ShootTouchButton_pressed():

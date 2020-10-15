@@ -140,62 +140,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="1" type="Label" parent="PontosContainer"]
+[node name="um" type="Label" parent="PontosContainer"]
 margin_left = -70.0
 margin_top = 6.0
 margin_right = 82.0
 margin_bottom = 47.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "4897"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="2" type="Label" parent="PontosContainer"]
+[node name="dois" type="Label" parent="PontosContainer"]
 margin_left = -57.0
 margin_top = 66.0
 margin_right = 95.0
 margin_bottom = 107.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "4897"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="3" type="Label" parent="PontosContainer"]
+[node name="tres" type="Label" parent="PontosContainer"]
 margin_left = -66.0
 margin_top = 129.0
 margin_right = 86.0
 margin_bottom = 170.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "4897"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="4" type="Label" parent="PontosContainer"]
+[node name="quatro" type="Label" parent="PontosContainer"]
 margin_left = -53.0
 margin_top = 195.0
 margin_right = 99.0
 margin_bottom = 236.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "4897"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="5" type="Label" parent="PontosContainer"]
+[node name="cinco" type="Label" parent="PontosContainer"]
 margin_left = -55.0
 margin_top = 260.0
 margin_right = 97.0
 margin_bottom = 301.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "4897"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -214,7 +209,6 @@ margin_right = 520.0
 margin_bottom = 150.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "0.15487 s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -226,7 +220,6 @@ margin_right = 533.0
 margin_bottom = 216.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "0.15487 s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -238,7 +231,6 @@ margin_right = 526.0
 margin_bottom = 276.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "0.15487 s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -251,7 +243,6 @@ margin_bottom = 356.0
 rect_rotation = -5.98514
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "0.15487 s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -264,7 +255,6 @@ margin_bottom = 421.0
 rect_rotation = -5.33941
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "0.15487 s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -284,7 +274,6 @@ margin_bottom = 152.0
 rect_rotation = -0.112822
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "48%"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -298,7 +287,6 @@ margin_bottom = 217.0
 rect_rotation = -0.112822
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "48%"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -312,7 +300,6 @@ margin_bottom = 278.0
 rect_rotation = -0.112822
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "48%"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -326,7 +313,6 @@ margin_bottom = 356.0
 rect_rotation = -6.61714
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "48%"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -340,7 +326,6 @@ margin_bottom = 411.0
 rect_rotation = -2.22795
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.4, 0.2, 0, 1 )
-text = "48%"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
