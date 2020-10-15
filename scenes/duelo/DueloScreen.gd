@@ -105,27 +105,27 @@ func _getProperSpaces(score):
 			
 
 class MyCustomSorter:
-	static func sort_ascending(a, b):
-		if a['pontos'] < b['pontos']:
+	static func sort_descending(a, b):
+		if a['pontos'] > b['pontos']:
 			return true
-		elif a['reacao'] < b['reacao']:
-			return true
-		elif a['precisao'] < b['precisao']:
-			return true
+#		elif a['reacao'] > b['reacao']:
+#			return true
+#		elif a['precisao'] > b['precisao']:
+#			return true
 		else:
 			return false
 
 			
 func _save_record_to_file(final_score, x):
-	var precisao = int(200 - (abs(x) * 100))
+	var precisao = int((200 - (abs(x) * 100)) / 2)
 	var record = {
-			"pontos": final_score,					
-			"reacao": time_elapsed,
+			"pontos": final_score,
 			"precisao": precisao,
+			"reacao": time_elapsed,
 		}
 	Data.records.append(record)
-	Data.records.sort_custom(MyCustomSorter, "sort_ascending")
-	if len(Data.records) >= 5:
+	Data.records.sort_custom(MyCustomSorter, "sort_descending")
+	if len(Data.records) > 5:
 		Data.records.pop_back()
 	Data.save()
 			
@@ -142,7 +142,7 @@ func _on_ShootTouchButton_pressed():
 			$ScoreTextPlayer1.text = _getProperSpaces(final_score) + str(int(final_score)) + ' PTS' 
 			$ReactionTimeTextP1.text = 'REACAO: ' + str(time_elapsed) + ' s'
 			$PrecisionTextP1.text = 'PRECISAO: ' + str(int((200 - (abs(x) * 100)) / 2)) + '%'
-			_save_record_to_file(final_score, x)
+			_save_record_to_file(int(final_score), x)
 		else:
 			score_p2 = int(final_score)
 			$ScoreTextPlayer2.text = _getProperSpaces(final_score) + str(int(final_score)) + ' PTS' 

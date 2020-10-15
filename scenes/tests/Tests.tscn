@@ -39,7 +39,7 @@ pressed = ExtResource( 7 )
 margin_left = 39.0
 margin_top = 17.0
 margin_right = 651.0
-margin_bottom = 88.0
+margin_bottom = 470.0
 theme = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
