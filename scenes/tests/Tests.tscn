@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://resources/bgs/title_screen.jpeg" type="Texture" id=1]
 [ext_resource path="res://scenes/tests/Tests.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://resources/buttons/BG_Button_Pressed_01.png" type="Texture" id=6]
 [ext_resource path="res://resources/buttons/BG_Button_Pressed_03.png" type="Texture" id=7]
 [ext_resource path="res://resources/buttons/BG_Button_Pressed_02.png" type="Texture" id=8]
+[ext_resource path="res://resources/audio/bg_audio_02.wav" type="AudioStream" id=9]
 
 [node name="Tests" type="Node2D"]
 script = ExtResource( 2 )
@@ -33,6 +34,9 @@ position = Vector2( 563, 330 )
 rotation = -0.0872665
 normal = ExtResource( 3 )
 pressed = ExtResource( 7 )
+
+[node name="bg_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
 [connection signal="pressed" from="TreinoButton" to="." method="_on_TreinoButton_pressed"]
 [connection signal="pressed" from="DueloButton" to="." method="_on_DueloButton_pressed"]
 [connection signal="pressed" from="MeusDisparosButton" to="." method="_on_MeusDisparosButton_pressed"]

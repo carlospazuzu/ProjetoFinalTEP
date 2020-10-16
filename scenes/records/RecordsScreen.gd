@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	#$bg_audio.play()
 	Data.load()
 	var lenData = len(Data.records)
 	var cont = 0

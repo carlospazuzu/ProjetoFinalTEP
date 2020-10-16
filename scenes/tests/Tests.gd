@@ -1,9 +1,9 @@
 extends Node2D
 
-
 func _ready():
-	pass
-
+	if not BG_Audio.get_bg_audio().is_playing():
+		BG_Audio.bg_audio_play()
+		
 func _process(delta):
 	pass
 

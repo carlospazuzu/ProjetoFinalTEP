@@ -26,7 +26,7 @@ var sfx3 = preload('res://resources/audio/tiro.wav')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	BG_Audio.bg_audio_stop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

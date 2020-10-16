@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/audio/bg_audio_02.wav" type="AudioStream" id=1]
+[ext_resource path="res://scenes/Audio/BG_Audio.gd" type="Script" id=2]
+
+[node name="BG_Audio" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="bg_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+autoplay = true

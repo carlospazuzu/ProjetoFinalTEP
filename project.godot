@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Data="*res://save/Data.gd"
+BG_Audio="*res://scenes/Audio/BG_Audio.tscn"
 
 [display]
 

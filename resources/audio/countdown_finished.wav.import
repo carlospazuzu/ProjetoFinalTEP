@@ -12,10 +12,10 @@ dest_files=[ "res://.import/countdown_finished.wav-5caf2205cfbfe29f4a870275dcede
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=false
+edit/normalize=true
 edit/loop=false
 compress/mode=0
