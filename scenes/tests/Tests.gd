@@ -2,12 +2,10 @@ extends Node2D
 
 
 func _ready():
-	Data.load()
-	$Text.text = str(Data.records)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	pass
+
+func _process(delta):
+	pass
 
 func _on_TreinoButton_pressed():
 	get_tree().change_scene("res://scenes/treino/TreinoScreen.tscn")

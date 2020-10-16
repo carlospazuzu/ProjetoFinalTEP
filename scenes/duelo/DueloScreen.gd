@@ -144,7 +144,7 @@ func _on_ShootTouchButton_pressed():
 			$ScoreTextPlayer1.text = _getProperSpaces(final_score) + str(int(final_score)) + ' PTS' 
 			$ReactionTimeTextP1.text = 'REACAO: ' + str(time_elapsed) + ' s'
 			$PrecisionTextP1.text = 'PRECISAO: ' + str(int((200 - (abs(x) * 100)) / 2)) + '%'
-			previous_final_score = Data.records[0].pontos
+			previous_final_score = int(Data.records[0].pontos)
 			_save_record_to_file(int(final_score), x)
 		else:
 			score_p2 = int(final_score)
