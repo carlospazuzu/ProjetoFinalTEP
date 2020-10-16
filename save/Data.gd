@@ -1,8 +1,12 @@
 extends Node
 
 const FILE_NAME = "user://save-data.json"
-
-var records = []
+var record = {
+			"pontos": 0,
+			"precisao": 0,
+			"reacao": 0.0,
+		}
+var records = [record,record,record,record,record]
 
 func save():
 	var file = File.new()

@@ -58,6 +58,7 @@ position = Vector2( 426, 240 )
 texture = ExtResource( 6 )
 
 [node name="AccelerometerHelper" type="RichTextLabel" parent="."]
+visible = false
 margin_left = 36.0
 margin_top = 11.0
 margin_right = 445.0
@@ -72,6 +73,7 @@ normal = ExtResource( 7 )
 [node name="SoundFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="has_started_Text" type="RichTextLabel" parent="."]
+visible = false
 margin_left = 669.0
 margin_top = 4.0
 margin_right = 848.0

@@ -17,6 +17,8 @@ var is_player_one: bool = true
 var score_p1 = 0
 var score_p2 = 0
 
+var previous_final_score: int = 0
+
 var sfx1 = preload('res://resources/audio/load1.wav')
 var sfx2 = preload('res://resources/audio/load2.wav')
 var sfx3 = preload('res://resources/audio/tiro.wav')
@@ -55,9 +57,9 @@ func _process(delta):
 			is_allowed_to_shoot = false
 
 
-	var acc = Input.get_accelerometer()
-	var started = str(has_started)
-	$AccelerometerHelper.text = 'X = ' + str(acc.x) + ' Y = ' + str(acc.y) + ' Z = ' + str(acc.z) + ' has_starded = ' + started
+	#var acc = Input.get_accelerometer()
+	#var started = str(has_started)
+	#$AccelerometerHelper.text = 'X = ' + str(acc.x) + ' Y = ' + str(acc.y) + ' Z = ' + str(acc.z) + ' has_starded = ' + started
 
 func _on_DuelarTouchButton_pressed():
 	has_started = true
@@ -142,6 +144,7 @@ func _on_ShootTouchButton_pressed():
 			$ScoreTextPlayer1.text = _getProperSpaces(final_score) + str(int(final_score)) + ' PTS' 
 			$ReactionTimeTextP1.text = 'REACAO: ' + str(time_elapsed) + ' s'
 			$PrecisionTextP1.text = 'PRECISAO: ' + str(int((200 - (abs(x) * 100)) / 2)) + '%'
+			previous_final_score = Data.records[0].pontos
 			_save_record_to_file(int(final_score), x)
 		else:
 			score_p2 = int(final_score)
@@ -151,12 +154,17 @@ func _on_ShootTouchButton_pressed():
 			
 		$ShotSFX.stream = sfx3
 		$ShotSFX.play()		
-		show_final_score_itens()
+		show_final_score_itens(previous_final_score)
 			
-func show_final_score_itens():
+func show_final_score_itens(p_f_s):
 	$Bangg.visible = true
 	$ShootTouchButton.visible = false
 	$NextPlayerButton.visible = true
+
+	if is_player_one:
+		#$AccelerometerHelper.text = "Antigo: " + str(p_f_s) + " - Novo: " + str(Data.records[0].pontos)
+		if int(Data.records[0].pontos) > p_f_s and p_f_s != 0:
+			$NewRecord.visible = true
 		
 func _on_NextPlayerButton_pressed():
 	$Bangg.visible = false
@@ -170,6 +178,7 @@ func _on_NextPlayerButton_pressed():
 		$ShootTouchButton.visible = true
 		$CountDownImage.visible = true
 		$CountDownImage.texture = null
+		$NewRecord.visible = false
 		is_in_right_position = false
 		is_allowed_to_aim = false
 		is_allowed_to_shoot = false

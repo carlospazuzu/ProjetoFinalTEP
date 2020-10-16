@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/duelo/DueloScreen.gd" type="Script" id=1]
 [ext_resource path="res://resources/others/PauDaPlacaTreino.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://resources/buttons/next_player_button.png" type="Texture" id=19]
 [ext_resource path="res://resources/buttons/ScoreDuelo.png" type="Texture" id=20]
 [ext_resource path="res://theme/new_theme_2.tres" type="Theme" id=21]
+[ext_resource path="res://resources/others/NovoRecorde.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -247,6 +248,12 @@ margin_bottom = 61.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NewRecord" type="Sprite" parent="."]
+visible = false
+position = Vector2( 155.5, 372 )
+scale = Vector2( 1.15058, 1.1236 )
+texture = ExtResource( 22 )
 [connection signal="pressed" from="ShootTouchButton" to="." method="_on_ShootTouchButton_pressed"]
 [connection signal="pressed" from="DuelarTouchButton" to="." method="_on_DuelarTouchButton_pressed"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
